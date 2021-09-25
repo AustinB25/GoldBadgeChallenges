@@ -8,7 +8,7 @@ namespace GoldBadgeChallenge_2_Claims
 {
     public class ClaimsRepository
     {
-        public Queue<Claims> _claims = new Queue<Claims>();
+        private Queue<Claims> _claims = new Queue<Claims>();
         int iDCount = default;
         //Create 
         public bool CreateClaim(Claims newClaim)
@@ -25,36 +25,18 @@ namespace GoldBadgeChallenge_2_Claims
         public Queue<Claims> SeeAllClaims()
         {
             return _claims;
-        }
-        //Update
-        public bool UpdateAClaim(int id, Claims updatedClaim)
-        {
-            Claims exsistingClaim = FindClaimById(id);
-            if (exsistingClaim == null)
-            {
-                return false;
-            }
-            exsistingClaim.ClaimAmount = updatedClaim.ClaimAmount;
-            exsistingClaim.ClaimType = updatedClaim.ClaimType;
-            exsistingClaim.DateOfClaim = updatedClaim.DateOfClaim;
-            exsistingClaim.DateOfIncident = updatedClaim.DateOfIncident;
-            exsistingClaim.Description = updatedClaim.Description;
-            exsistingClaim.isClaimValid = updatedClaim.isClaimValid;
-            return true;
-        }
+        }     
+     
         //Delete 
-        public bool DeQueueAClaim(int id)
-        {            
-            Claims exsistingClaim = FindClaimById(id);
-            if (exsistingClaim == null)
-            {
-                return false;
-            }
-            _claims.Dequeue();
-            return true;
-
+        public void  DeQueueAClaim()
+        {  
+            _claims.Dequeue(); 
         }
         //Helper Method
+       public Claims ViewNextClaimInQueue()
+        {
+            return _claims.Peek();
+        }
         public Claims FindClaimById(int id)
         {
             foreach (Claims claim in _claims)

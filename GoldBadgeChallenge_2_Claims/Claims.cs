@@ -14,15 +14,13 @@ namespace GoldBadgeChallenge_2_Claims
             Description = description;
             ClaimAmount = claimAmount;
         }
-        public Claims(int claimID, ClaimType claimType, string description, double claimAmount, DateTime dateOfIncident, DateTime dateOfClaim, bool isClaimValid)
-        {
-            ClaimID = claimID;
+        public Claims(ClaimType claimType, string description, double claimAmount, DateTime dateOfIncident, DateTime dateOfClaim)
+        {            
             ClaimType = claimType;
             Description = description;
             ClaimAmount = claimAmount;
             DateOfIncident = dateOfIncident;
-            DateOfClaim = dateOfClaim;
-            this.isClaimValid = isClaimValid;
+            DateOfClaim = dateOfClaim;            
         }
 
        public int ClaimID { get; set; }
@@ -31,7 +29,8 @@ namespace GoldBadgeChallenge_2_Claims
         public double ClaimAmount { get; set; }
         public DateTime DateOfIncident { get; set; }
         public DateTime DateOfClaim { get; set; }
-        public bool isClaimValid { get; set; } //if the claim date is less than 30 days after the incident it is valid if(DateOfClaim - DateOfIncident <= 30days)    
+        public TimeSpan AgeOfClaim { get { return (DateOfClaim - DateOfIncident); } }
+        public bool IsClaimValid { get { if (AgeOfClaim.Days <= 30) { return true; } return false; } } //if the claim date is less than 30 days after the incident it is valid if(DateOfClaim - DateOfIncident <= 30days)    
     }
     public enum ClaimType
     {
