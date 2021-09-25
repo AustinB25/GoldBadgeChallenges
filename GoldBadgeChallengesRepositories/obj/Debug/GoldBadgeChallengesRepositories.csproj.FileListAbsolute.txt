@@ -1,0 +1,17 @@
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\GoldBadgeChallengesRepositories.dll
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\GoldBadgeChallengesRepositories.pdb
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\GoldBadgeChallenge_2_Claims.exe
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\GoldBadgeChallenge_2_Claims.pdb
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\GoldBadgeChallenge_2_Claims.exe.config
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\obj\Debug\GoldBadgeChallengesRepositories.csproj.AssemblyReference.cache
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\obj\Debug\GoldBadgeChallengesRepositories.csproj.CoreCompileInputs.cache
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\obj\Debug\GoldBadgeChallengesRepositories.csproj.CopyComplete
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\obj\Debug\GoldBadgeChallengesRepositories.dll
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\obj\Debug\GoldBadgeChallengesRepositories.pdb
