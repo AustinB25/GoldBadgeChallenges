@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace GoldBadgeChallenge_2_Claims
 {
-    public class Claims
+    public class Claim
     {
-        public Claims(){}
-        public Claims(string description, double claimAmount) 
+        public Claim(){}
+        public Claim(string description, double claimAmount) 
         {
             Description = description;
             ClaimAmount = claimAmount;
         }
-        public Claims(ClaimType claimType, string description, double claimAmount, DateTime dateOfIncident, DateTime dateOfClaim)
+        public Claim(ClaimType claimType, string description, double claimAmount, DateTime dateOfIncident, DateTime dateOfClaim)
         {            
             ClaimType = claimType;
             Description = description;

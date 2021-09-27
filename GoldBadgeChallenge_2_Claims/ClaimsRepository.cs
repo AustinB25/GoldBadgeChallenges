@@ -8,10 +8,10 @@ namespace GoldBadgeChallenge_2_Claims
 {
     public class ClaimsRepository
     {
-        private Queue<Claims> _claims = new Queue<Claims>();
+        private Queue<Claim> _claims = new Queue<Claim>();
         int iDCount = default;
         //Create 
-        public bool CreateClaim(Claims newClaim)
+        public bool CreateClaim(Claim newClaim)
         {
             if (newClaim == null)
             {
@@ -22,24 +22,23 @@ namespace GoldBadgeChallenge_2_Claims
             return true;
         }
         //Read
-        public Queue<Claims> SeeAllClaims()
+        public Queue<Claim> SeeAllClaims()
         {
             return _claims;
-        }     
-     
+        }          
         //Delete 
         public void  DeQueueAClaim()
         {  
             _claims.Dequeue(); 
         }
         //Helper Method
-       public Claims ViewNextClaimInQueue()
+       public Claim ViewNextClaimInQueue()
         {
             return _claims.Peek();
         }
-        public Claims FindClaimById(int id)
+        public Claim FindClaimById(int id)
         {
-            foreach (Claims claim in _claims)
+            foreach (Claim claim in _claims)
             {
                 if (claim.ClaimID == id)
                 {

@@ -15,3 +15,6 @@ C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\
 C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\obj\Debug\GoldBadgeChallengesRepositories.csproj.CopyComplete
 C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\obj\Debug\GoldBadgeChallengesRepositories.dll
 C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\obj\Debug\GoldBadgeChallengesRepositories.pdb
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\GoldBadgeChallenge_4_Company_Outings.exe
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\GoldBadgeChallenge_4_Company_Outings.pdb
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\GoldBadgeChallenge_4_Company_Outings.exe.config

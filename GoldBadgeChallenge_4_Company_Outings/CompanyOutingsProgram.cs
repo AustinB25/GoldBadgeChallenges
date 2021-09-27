@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace GoldBadgeChallenge_4_Company_Outings
 {
-    class Program
+    class CompanyOutingsProgram
     {
         static void Main(string[] args)
         {
+            CompanyOutingsUI program = new CompanyOutingsUI();
+            program.Run();           
         }
-    }
+}
 }
