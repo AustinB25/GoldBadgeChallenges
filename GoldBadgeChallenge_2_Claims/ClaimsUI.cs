@@ -80,6 +80,8 @@ namespace GoldBadgeChallenge_2_Claims
                 if (userInput == "y")
                 {
                     _claimsRepository.DeQueueAClaim();
+                    Console.WriteLine($"You have finshed claim {nextClaim.ClaimID}");
+                    PressAnyKey();
                 }
                 else if (userInput == "n")
                 {
