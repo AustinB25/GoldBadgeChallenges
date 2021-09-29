@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace GoldBadgeChallenge_7_Barbeque
 {
-    class Program
+    class TreatsBooth
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }
