@@ -1,0 +1,7 @@
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_7_Barbeque\bin\Debug\GoldBadgeChallenge_7_Barbeque.exe.config
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_7_Barbeque\bin\Debug\GoldBadgeChallenge_7_Barbeque.exe
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_7_Barbeque\bin\Debug\GoldBadgeChallenge_7_Barbeque.pdb
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_7_Barbeque\obj\Debug\GoldBadgeChallenge_7_Barbeque.csproj.AssemblyReference.cache
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_7_Barbeque\obj\Debug\GoldBadgeChallenge_7_Barbeque.csproj.CoreCompileInputs.cache
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_7_Barbeque\obj\Debug\GoldBadgeChallenge_7_Barbeque.exe
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_7_Barbeque\obj\Debug\GoldBadgeChallenge_7_Barbeque.pdb

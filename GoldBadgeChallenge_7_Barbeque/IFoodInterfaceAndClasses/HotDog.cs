@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace GoldBadgeChallenge_7_Barbeque.IFoodInterfaceAndClasses
 {
     public class HotDog : IFood
-    {       
+    {
+        public HotDog() {}
         public string Name { get { return "Hot Dog "; } }
         public decimal Price { get { return Protien + Bun + AddOnTotal; } }
         public decimal Protien { get { return 1.00m; } }

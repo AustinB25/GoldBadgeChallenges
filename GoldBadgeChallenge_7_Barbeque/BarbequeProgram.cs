@@ -10,6 +10,8 @@ namespace GoldBadgeChallenge_7_Barbeque
     {
         static void Main(string[] args)
         {
+            BarbequeUI program = new BarbequeUI();
+            program.Run();
         }
     }
 }

@@ -10,6 +10,8 @@ namespace GoldBadgeChallenge_7_Barbeque.ISweetsInterfaceAndClasses
     {
         public string Name { get { return "Popcorn"; } }
         public decimal Price { get { return 1.00m; } }
-        public decimal Nuts { get { return 0.00m; } }
+        public decimal Napkins { get { return 0.00m; } }
+        public decimal Spoons { get { return 0.05m; } } 
+        public decimal Bowl { get { return 0.10m; } } 
     }
 }

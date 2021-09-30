@@ -44,10 +44,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Barbeque.cs" />
+    <Compile Include="BarbequeBurgerBooth.cs" />
     <Compile Include="BarbequeProgram.cs" />
     <Compile Include="BarbequeRepository.cs" />
     <Compile Include="BarbequeUI.cs" />
+    <Compile Include="BurgerBoothRepo.cs" />
+    <Compile Include="IceCreamBoothRepo.cs" />
+    <Compile Include="IFoodInterfaceAndClasses\Hamburger.cs" />
+    <Compile Include="IFoodInterfaceAndClasses\HotDog.cs" />
+    <Compile Include="IFoodInterfaceAndClasses\IFood.cs" />
+    <Compile Include="IFoodInterfaceAndClasses\IFoodRepo.cs" />
+    <Compile Include="IFoodInterfaceAndClasses\VeggieBurger.cs" />
+    <Compile Include="ISweetsInterfaceAndClasses\IceCream.cs" />
+    <Compile Include="ISweetsInterfaceAndClasses\ISweets.cs" />
+    <Compile Include="ISweetsInterfaceAndClasses\Popcorn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BarbequeIceCreamBooth.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
