@@ -18,3 +18,6 @@ C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\
 C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\GoldBadgeChallenge_4_Company_Outings.exe
 C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\GoldBadgeChallenge_4_Company_Outings.pdb
 C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\GoldBadgeChallenge_4_Company_Outings.exe.config
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\GoldBadgeChallenge_7_Barbeque.exe
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\GoldBadgeChallenge_7_Barbeque.pdb
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\GoldBadgeChallenge_7_Barbeque.exe.config

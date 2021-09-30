@@ -29,10 +29,8 @@ namespace GoldBadgeChallenge_7_Barbeque
                + "What would you like to do?\n"
                + "1. Add a barbeque \n"
                + "2. View all of the barbeques\n"
-               + "3. View all of the tickets taken at the last barbeque\n"
-               + "4. View average cost per ticket given\n"
-               + "5. Extra time options\n"
-               + "6. Exit the program\n");
+               + "3. Average ticket price for all barbeques\n"           
+               + "4. Exit the program\n");
             int mainInput = int.Parse(Console.ReadLine());
                 switch (mainInput)
                 {
@@ -43,18 +41,20 @@ namespace GoldBadgeChallenge_7_Barbeque
                         DisplayBarbeques();
                         break;
                     case 3:
-                        break;
+                        FindTheAverageTicketPriceForAllBarbeques();
+                        break;                    
                     case 4:
-                        break;
-                    case 5:
-                        break;
-                    case 6:
-                        break;
+                        Console.WriteLine("GoodBye!");
+                        System.Threading.Thread.Sleep(2000);
+                        isRunning = false;
+                        break;                   
                     default:
+                        Console.WriteLine("Please enter a valid option...");
+                        PressAnyKey();
                         break;
                 }
             }
-        }
+        } 
         public void CreateABarbeque()
         {
             Barbeque newBBQ = new Barbeque();
@@ -122,10 +122,10 @@ namespace GoldBadgeChallenge_7_Barbeque
                     + $"Day of the barbeque: {barbeque.DayOfEvent}\n"
                     + $"Burger booth used: {barbeque.BurgerBooth.Name}\n"
                     + $"    Total cost of the burger booth ${barbeque.BurgerBooth.FoodPrice}\n"
-                    + $"    Total employees that went to this booth: {barbeque.BurgerBooth.TicketsTaken}\n"
-                    + $"Ice Cream booth used: {barbeque.IceCreamBooth.Name}"
+                    + $"    Total number of employee tickets taken at this booth: {barbeque.BurgerBooth.TicketsTaken}\n"
+                    + $"Ice Cream booth used: {barbeque.IceCreamBooth.Name}\n"
                     + $"    Total cost of the ice cream booth: ${barbeque.IceCreamBooth.SweetsPrice}\n"
-                    + $"    Total employees that went to this booth: {barbeque.IceCreamBooth.TicketsTaken}\n"
+                    + $"    Total number of employee tickets taken at this booth: {barbeque.IceCreamBooth.TicketsTaken}\n"
                     + $"Total Cost of the Event: ${barbeque.IceCreamBooth.SweetsPrice + barbeque.BurgerBooth.FoodPrice}\n");
             }
             PressAnyKey();
@@ -207,6 +207,35 @@ namespace GoldBadgeChallenge_7_Barbeque
             BarbequeIceCreamBooth chosenBooth = _iceCreamBoothRepo.FindIceCreamBoothById(boothID);
             return chosenBooth;
         }
+        public void FindTheAverageTicketPriceForAllBarbeques()
+        {
+            decimal totalBurgerPrice = default;
+            int burgerTicketCount = default;
+            foreach (BarbequeBurgerBooth burgerBooth in _burgerBoothRepo.SeeAllBurgerBooths())
+            {
+                totalBurgerPrice += burgerBooth.FoodPrice;
+                burgerTicketCount += burgerBooth.TicketsTaken;
+            }
+            decimal totalIceCreamPrice = default;
+            int iceCreamTicketCount = default;            
+            foreach(BarbequeIceCreamBooth iceCreamBooth in _iceCreamBoothRepo.SeeAllIceCreamBooths())
+            {
+                totalIceCreamPrice += iceCreamBooth.SweetsPrice;
+                iceCreamTicketCount += iceCreamBooth.TicketsTaken;
+            }
+            decimal averageBurgerTicketPrice = decimal.Round( totalBurgerPrice / burgerTicketCount, 2);
+            decimal averageIceCreamTicketPrice = decimal.Round(totalIceCreamPrice / iceCreamTicketCount, 2);
+            Console.Clear();
+            Console.WriteLine($"You have had a burger booth at {_burgerBoothRepo.SeeAllBurgerBooths().Count} barbeques.\n"
+                + $"They collect a total of {burgerTicketCount} tickets during all of the barbeques.\n"
+                + $"    You've spent ${totalBurgerPrice} for the burger booths.\n"
+                + $"    The average cost per ticket is : ${averageBurgerTicketPrice}.\n"
+                + $"You have had an ice cream booth at {_iceCreamBoothRepo.SeeAllIceCreamBooths().Count} barbeques.\n"
+                + $"    They collect a total of {iceCreamTicketCount} tickets during all of the barbeques.\n"
+                + $"    You've spent ${totalIceCreamPrice} for the burger booths.\n"
+                + $"    The average cost per ticket is : ${averageIceCreamTicketPrice}.");
+            PressAnyKey();
+        }
         public void PressAnyKey()
         {
             Console.WriteLine("Press any key to continue...");
@@ -238,6 +267,10 @@ namespace GoldBadgeChallenge_7_Barbeque
             jaysIceCream2.Name = "Jay's Ice Cream";
             jaysIceCream2.SweetsPrice = 578.43m;
             jaysIceCream2.TicketsTaken = 124;
+            _burgerBoothRepo.CreateABurgerBooth(mrBeastBurger);
+            _burgerBoothRepo.CreateABurgerBooth(fiveGuys);
+            _iceCreamBoothRepo.CreateAnIceCreamBooth(jaysIceCream);
+            _iceCreamBoothRepo.CreateAnIceCreamBooth(jaysIceCream2);
             firstBBQ.BurgerBooth = mrBeastBurger;
             secondBBQ.BurgerBooth = fiveGuys;
             firstBBQ.IceCreamBooth = jaysIceCream;
@@ -247,18 +280,4 @@ namespace GoldBadgeChallenge_7_Barbeque
                 
         }
     }
-    /* Komodo Barbecue
- Scenario:
- Komodo Insurance is trying to improve their efficiency in spending for company barbecues.
-    They have two booths: an ice cream booth and a burger booth.
-    Each employee is given one ticket for each of the booths. 
-    Each employee can get one (meat or veggie)burger or one hotdog with the burger booth ticket.
-    Each employee can get one ice cream cone with their ice cream ticket.
-
-    The app will track data about the barbecue after it is over.
-    Here's what they want to do:
-    They will want to show a total cost for the party.
-
- They also want to track total tickets taken at each booth and total tickets taken at the party.
- One key result in the program will be for party planners to see a list of all parties with total cost and total tickets taken for an event*/
 }

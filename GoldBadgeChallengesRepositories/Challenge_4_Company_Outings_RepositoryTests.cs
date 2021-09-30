@@ -36,7 +36,7 @@ namespace GoldBadgeChallengesRepositories
             Assert.IsTrue(result);
         }
         [TestMethod]
-        public void FindOutingByID_OutingDoesNotExsis_ReturnNull()
+        public void FindOutingByID_OutingDoesNotExsist_ReturnNull()
         {
             int id = 5;
 
