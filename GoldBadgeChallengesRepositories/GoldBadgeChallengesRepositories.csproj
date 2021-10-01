@@ -52,12 +52,17 @@
     <Compile Include="Challenge_2_Claims_RepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Challenge_4_Company_Outings_RepositoryTests.cs" />
-    <Compile Include="Challenge_7_Company_Barbeques.cs" />
+    <Compile Include="Challenge_7_Company_Barbeques_RepoTests.cs" />
+    <Compile Include="Challenge_1_Cafe_RepoTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GoldBadgeChallenge_1_Cafe\GoldBadgeChallenge_1_Cafe.csproj">
+      <Project>{FC9B5965-D0EE-4CFA-BA9A-EE58E4F11B61}</Project>
+      <Name>GoldBadgeChallenge_1_Cafe</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GoldBadgeChallenge_2_Claims\GoldBadgeChallenge_2_Claims.csproj">
       <Project>{E4553BB8-E72E-4F4D-B7DB-D08F3ADA1E09}</Project>
       <Name>GoldBadgeChallenge_2_Claims</Name>

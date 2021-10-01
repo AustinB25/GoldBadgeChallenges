@@ -1,0 +1,7 @@
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_1_Cafe\bin\Debug\GoldBadgeChallenge_1_Cafe.exe.config
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_1_Cafe\bin\Debug\GoldBadgeChallenge_1_Cafe.exe
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_1_Cafe\bin\Debug\GoldBadgeChallenge_1_Cafe.pdb
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_1_Cafe\obj\Debug\GoldBadgeChallenge_1_Cafe.csproj.AssemblyReference.cache
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_1_Cafe\obj\Debug\GoldBadgeChallenge_1_Cafe.csproj.CoreCompileInputs.cache
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_1_Cafe\obj\Debug\GoldBadgeChallenge_1_Cafe.exe
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_1_Cafe\obj\Debug\GoldBadgeChallenge_1_Cafe.pdb

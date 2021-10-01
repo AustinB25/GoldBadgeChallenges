@@ -223,8 +223,8 @@ namespace GoldBadgeChallenge_7_Barbeque
                 totalIceCreamPrice += iceCreamBooth.SweetsPrice;
                 iceCreamTicketCount += iceCreamBooth.TicketsTaken;
             }
-            decimal averageBurgerTicketPrice = decimal.Round( totalBurgerPrice / burgerTicketCount, 2);
-            decimal averageIceCreamTicketPrice = decimal.Round(totalIceCreamPrice / iceCreamTicketCount, 2);
+            decimal averageBurgerTicketPrice = Math.Round( totalBurgerPrice / burgerTicketCount, 2);
+            decimal averageIceCreamTicketPrice = Math.Round(totalIceCreamPrice / iceCreamTicketCount, 2);
             Console.Clear();
             Console.WriteLine($"You have had a burger booth at {_burgerBoothRepo.SeeAllBurgerBooths().Count} barbeques.\n"
                 + $"They collect a total of {burgerTicketCount} tickets during all of the barbeques.\n"

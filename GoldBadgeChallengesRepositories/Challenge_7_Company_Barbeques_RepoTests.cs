@@ -5,7 +5,7 @@ using System;
 namespace GoldBadgeChallengesRepositories
 {
     [TestClass]
-    public class Challenge_7_Company_Barbeques
+    public class Challenge_7_Company_Barbeques_RepoTests
     {
         BarbequeRepository _bbqRepo = new BarbequeRepository();
         [TestInitialize]

@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "READ.ME", "READ.ME", "{C732
 		READ_ME.txt = READ_ME.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldBadgeChallenge_1_Cafe", "GoldBadgeChallenge_1_Cafe\GoldBadgeChallenge_1_Cafe.csproj", "{FC9B5965-D0EE-4CFA-BA9A-EE58E4F11B61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{89415E81-8603-4C14-A060-E21EE855163C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89415E81-8603-4C14-A060-E21EE855163C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89415E81-8603-4C14-A060-E21EE855163C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC9B5965-D0EE-4CFA-BA9A-EE58E4F11B61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC9B5965-D0EE-4CFA-BA9A-EE58E4F11B61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC9B5965-D0EE-4CFA-BA9A-EE58E4F11B61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC9B5965-D0EE-4CFA-BA9A-EE58E4F11B61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
