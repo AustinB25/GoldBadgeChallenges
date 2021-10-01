@@ -43,6 +43,9 @@ namespace GoldBadgeChallenge_2_Claims
                         EnterANewClaim();
                         break;
                     case 4://4. Leave the System
+                        Console.WriteLine("Goodbye!");
+                        System.Threading.Thread.Sleep(2000);
+                        isRunning = false;
                         break;
                     default:
                         break;

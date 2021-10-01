@@ -11,6 +11,7 @@ namespace GoldBadgeChallenge_1_Cafe
         private CafeMenuItemRepo _menuItems = new CafeMenuItemRepo();
         public void Run()
         {
+            SeedData();
             MainMenu();
         }
         public void MainMenu()
@@ -33,14 +34,22 @@ namespace GoldBadgeChallenge_1_Cafe
                         CreateMenuItem();
                         break;
                     case 2:
+                        ViewAllMenuItems();
                         break;
                     case 3:
+                        ViewASpecificItem();
                         break;
                     case 4:
+                        RemoveAnItem();
                         break;
                     case 5:
+                        Console.WriteLine("Goodbye!");
+                        System.Threading.Thread.Sleep(2000);
+                        isRunning = false;
                         break;
                     default:
+                        Console.WriteLine("You did not enter a valid number...");
+                        PressAnyKey();
                         break;
                 }
             }
@@ -87,11 +96,80 @@ namespace GoldBadgeChallenge_1_Cafe
                 PressAnyKey();
             }
         }
+        public void ViewAllMenuItems()
+        {
+            Console.Clear();
+            foreach(CafeMenuItem item in _menuItems.SeeAllMenuItems())
+            {
+                Console.WriteLine($"Item ID: {item.ID}          Item name: {item.Name}          Price of the item: {item.Price}\n"
+                    + $"Description: {item.Description}\n");
+            }
+        }
+        public void ViewASpecificItem()
+        {
+            Console.Clear();
+            ViewAllMenuItems();
+            Console.WriteLine("\n Please enter the item ID of the item you want to view");
+            int itemID = int.Parse(Console.ReadLine());
+            Console.Clear();
+            CafeMenuItem item = _menuItems.FindItemByID(itemID);
+            Console.WriteLine($"Item ID: {item.ID}          Item name: {item.Name}          Price of the item: {item.Price}\n"
+                    + $"Description: {item.Description}\n"
+                    + $"Ingredients: ");
+            DisplayListOfStrings(item.Ingredients);
+            PressAnyKey();
+        }
+        public void RemoveAnItem()
+        {
+            ViewAllMenuItems();
+            Console.WriteLine("\nPlease enter the id of the item you want to remove.");
+            int removeItem = int.Parse(Console.ReadLine());
+            Console.Clear();
+            bool wasRemoved = _menuItems.RemoveAMenuItem(removeItem);
+            if(wasRemoved == false)
+            {
+                Console.WriteLine("The item could not be removed");
+                PressAnyKey();
+            }
+            if(wasRemoved == true)
+            {
+                Console.WriteLine("Your item was removed from the menu.");
+                PressAnyKey();
+            }
+        }
         public void PressAnyKey()
         {
-            Console.WriteLine("Press any key to conitue...");
+            Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
             Console.Clear();
+        }
+        public List<string> DisplayListOfStrings(List<string> list)
+        {
+            int listNumber = 1;
+            foreach(string item in list)
+            {
+                Console.WriteLine($"                {listNumber}. {item}");
+                listNumber++;
+            }
+            return list;
+        }
+
+        public void SeedData()
+        {
+            CafeMenuItem seed1 = new CafeMenuItem("Eggs and Cheese", "Fresh plate of eggs and cheese", 1.75m);
+            List<string> ingredients = new List<string>();
+            ingredients.Add("eggs");
+            ingredients.Add("cheese");
+            seed1.Ingredients = ingredients;
+            CafeMenuItem seed2 = new CafeMenuItem("Bacon, Eggs, and Cheese", "Fresh plate of bacon, eggs, and cheese", 3.75m);
+            List<string> ingredients2 = new List<string>();
+            ingredients2.Add("eggs");
+            ingredients2.Add("cheese");
+            ingredients2.Add("bacon");
+            seed1.Ingredients = ingredients;
+            seed2.Ingredients = ingredients2;
+            _menuItems.CreateAMenuItem(seed1);
+            _menuItems.CreateAMenuItem(seed2);
         }
     }
 }
