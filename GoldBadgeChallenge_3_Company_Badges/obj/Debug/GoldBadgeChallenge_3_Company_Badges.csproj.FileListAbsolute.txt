@@ -1,0 +1,7 @@
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_3_Company_Badges\bin\Debug\GoldBadgeChallenge_3_Company_Badges.exe.config
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_3_Company_Badges\bin\Debug\GoldBadgeChallenge_3_Company_Badges.exe
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_3_Company_Badges\bin\Debug\GoldBadgeChallenge_3_Company_Badges.pdb
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_3_Company_Badges\obj\Debug\GoldBadgeChallenge_3_Company_Badges.csproj.AssemblyReference.cache
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_3_Company_Badges\obj\Debug\GoldBadgeChallenge_3_Company_Badges.csproj.CoreCompileInputs.cache
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_3_Company_Badges\obj\Debug\GoldBadgeChallenge_3_Company_Badges.exe
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_3_Company_Badges\obj\Debug\GoldBadgeChallenge_3_Company_Badges.pdb

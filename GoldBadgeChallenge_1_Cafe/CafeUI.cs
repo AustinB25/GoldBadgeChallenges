@@ -153,7 +153,6 @@ namespace GoldBadgeChallenge_1_Cafe
             }
             return list;
         }
-
         public void SeedData()
         {
             CafeMenuItem seed1 = new CafeMenuItem("Eggs and Cheese", "Fresh plate of eggs and cheese", 1.75m);
