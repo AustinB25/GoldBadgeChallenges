@@ -10,6 +10,8 @@ namespace GoldBadgeChallenge_3_Company_Badges
     {
         static void Main(string[] args)
         {
+            BadgesUI program = new BadgesUI();
+            program.Run();
         }
     }
 }

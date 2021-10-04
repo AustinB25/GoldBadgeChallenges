@@ -8,17 +8,122 @@ namespace GoldBadgeChallenge_3_Company_Badges
 {
     public class BadgesUI
     {
-    /*    
+        BadgesRepo _badgeRepo = new BadgesRepo();
+        public void Run()
+        {
+            SeedData();
+            MainMenu();
+        }
+        public void MainMenu()
+        {
+            bool isRunning = true;
 
-Here's what they need:
-An app that maintains a dictionary of details about employee badge information. (Hint: A dictionary is a collection type in C#. You'll want to use that.)
-Essentially, a badge will have a badge number that gives access to a specific list of doors.
-    For instance, a developer might have access to Door A1 & A5.A claims agent might have access to B2 & B4.
-Create a badge repository:
-Create a dictionary of badges.
-The key for the dictionary will be the BadgeID.
-The value for the dictionary will be the List of Door Names.
-The Program will allow a security staff member to do the following:
+            while (isRunning)
+            {
+                Console.WriteLine("Hello Security Admin, What would you like to do?\n"
+                    + "1. Add a badge\n"
+                    + "2. Edit a badge\n"
+                    + "3. List all badges\n"
+                    + "4. Exit the program");
+                int mainInput = int.Parse(Console.ReadLine());
+                switch (mainInput)
+                {
+                    case 1:
+                        CreateABadgeUI();
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        ViewAllBadgesUI();
+                        break;
+                    case 4:
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        public void CreateABadgeUI()
+        {
+            Badge newBadge = new Badge();
+            List<string> doorAccess = new List<string>();
+            Console.WriteLine("What is the badge Id:");
+            newBadge.BadgeID = int.Parse(Console.ReadLine());
+            Console.WriteLine("What is the name of the person that will have this badge?");
+            newBadge.Name = Console.ReadLine();
+            bool addingDoors = true;
+            do
+            {
+                Console.WriteLine($"List a door {newBadge.Name} needs access to:");
+                doorAccess.Add(Console.ReadLine());
+                Console.WriteLine("Any other doors? ( y / n )");
+                string anotherDoor = Console.ReadLine();
+                if (anotherDoor == "y")
+                {
+                    addingDoors = true;
+                }
+                if (anotherDoor == "n")
+                {
+                    newBadge.DoorAccess = doorAccess;
+                    addingDoors = false;
+                    PressAnyKey();
+                }
+                if (anotherDoor == null)
+                {
+                    Console.WriteLine("Invalid input");
+                }
+            } while (addingDoors);
+        }
+        public void ViewAllBadgesUI()
+        {
+            Console.Clear();
+            Console.WriteLine($"Badge #     Door Access\n");
+            foreach (KeyValuePair<int, Badge> badge in _badgeRepo.ViewAllBadges())
+            {
+
+                Console.WriteLine($"{badge.Key}     {badge.Value.DoorAccess}");
+            }
+            Console.WriteLine("\n");
+            PressAnyKey();
+        }
+        public void SeedData()
+        {
+            Badge badge1 = new Badge();
+            Badge badge2 = new Badge();
+            List<string> doorAccess = new List<string>();
+            List<string> doorAccess2 = new List<string>();
+            doorAccess.Add("A1");
+            doorAccess.Add("A2");
+            doorAccess.Add("A3");
+            doorAccess2.Add("B1");
+            doorAccess2.Add("B2");
+            doorAccess2.Add("B3");
+            badge1.BadgeID = 51201;
+            badge2.BadgeID = 51202;
+            badge1.Name = "Austin";
+            badge2.Name = "Katelyn";
+            badge1.DoorAccess = doorAccess;
+            badge2.DoorAccess = doorAccess2;
+            _badgeRepo.CreateANewBadge(badge1);
+            _badgeRepo.CreateANewBadge(badge2);
+        }
+        public void PressAnyKey()
+        {
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadLine();
+            Console.Clear();
+        }
+        public void DisplayDoorAccess()
+        {
+
+            foreach (KeyValuePair<int, Badge> badgeAccess in _badgeRepo.ViewAllBadges())
+            {
+                Console.WriteLine($"");
+            }
+        }
+       
+
+        /*   The Program will allow a security staff member to do the following:
 create a new badge
 update doors on an existing badge.
 delete all doors from an existing badge.
