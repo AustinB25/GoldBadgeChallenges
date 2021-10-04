@@ -80,7 +80,8 @@ namespace GoldBadgeChallengesRepositories
 
             bool result = _badgeRepo.UpdateABadge(id, newBadge);
 
-            Assert.IsTrue(result);            
+            Assert.IsTrue(result);
+            Assert.AreEqual("Katelyn", newBadge.Name);
         }
         [TestMethod]
         public void UpdateABadge_BadgeDoesNotExsist_ReturnFalse()

@@ -32,13 +32,18 @@ namespace GoldBadgeChallenge_3_Company_Badges
                         CreateABadgeUI();
                         break;
                     case 2:
+                        UpdateABadge();
                         break;
                     case 3:
                         ViewAllBadgesUI();
                         break;
                     case 4:
+                        Console.WriteLine("GoodBye!");
+                        System.Threading.Thread.Sleep(2000);
+                        isRunning = false;
                         break;
                     default:
+                        SwitchDefault();
                         break;
                 }
             }
@@ -70,10 +75,12 @@ namespace GoldBadgeChallenge_3_Company_Badges
                 }
                 if (anotherDoor == null)
                 {
-                    Console.WriteLine("Invalid input");
+                    SwitchDefault();
                 }
             } while (addingDoors);
+            _badgeRepo.CreateANewBadge(newBadge);
         }
+        //need help with displaying badge door access
         public void ViewAllBadgesUI()
         {
             Console.Clear();
@@ -81,9 +88,117 @@ namespace GoldBadgeChallenge_3_Company_Badges
             foreach (KeyValuePair<int, Badge> badge in _badgeRepo.ViewAllBadges())
             {
 
-                Console.WriteLine($"{badge.Key}     {badge.Value.DoorAccess}");
+                Console.WriteLine($"{badge.Key}"); DisplayDoorAccess(badge.Key);
+
             }
             Console.WriteLine("\n");
+            PressAnyKey();
+        }
+        public void UpdateABadge()
+        {
+            Badge newBadge = new Badge();
+            Console.WriteLine("Please enter the badge Id that you want to update:");
+            int badgeID = int.Parse(Console.ReadLine());
+            Badge updateBadge = _badgeRepo.FindBadgeByBadgeNumber(badgeID);
+            Console.WriteLine($"{updateBadge.BadgeID} has access to doors: ");
+            DisplayDoorAccess(badgeID);
+            Console.WriteLine("Would you like to:\n"
+                + "1. Add a door"
+                + "2. Remove a door");
+            int doorUpdate = int.Parse(Console.ReadLine());
+            Console.Clear();
+            switch (doorUpdate)
+            {
+                case 1:                    
+                    updateBadge.DoorAccess = AddDoors(updateBadge);                    
+                    break;
+                case 2:
+                    updateBadge.DoorAccess = RemoveDoor(updateBadge);
+                    break;
+                default:
+                    SwitchDefault();
+                    break;
+            }
+            Console.Clear();
+            Console.WriteLine($"{updateBadge.BadgeID} has access to doors: ");
+            DisplayDoorAccess(badgeID);
+            PressAnyKey();
+        }
+        public List<string> AddDoors(Badge badge)
+        {
+            bool adding = true;
+            List<string> newDoors = badge.DoorAccess;
+            Console.WriteLine("Please enter the door you want to add");
+            string door = Console.ReadLine();
+            newDoors.Add(door);
+            do
+            {
+                Console.WriteLine("Would you like to add another? ( y / n)");
+                string addAnother = Console.ReadLine().ToLower();
+                switch (addAnother)
+                {
+                    case "y":
+                        Console.WriteLine("Please enter the door you want to add");
+                        string nextDoor = Console.ReadLine();
+                        newDoors.Add(nextDoor);
+                        break;
+                    case "n":
+                        Console.WriteLine("The door has been added");
+                        adding = false;                        
+                        break;
+                    default:
+                        SwitchDefault();
+                        break;
+                }
+            } while (adding);
+            return newDoors;                        
+        }
+        public List<string> RemoveDoor(Badge badge)
+        {
+            bool removing = true;
+            Badge removeDoorFrom = _badgeRepo.FindBadgeByBadgeNumber(badge.BadgeID);
+            List<string> updatedList = removeDoorFrom.DoorAccess;
+            Console.WriteLine("Please enter the door you would like to remove:");
+            string removeDoor = Console.ReadLine();
+            foreach (string door in updatedList)
+            {
+                if (removeDoor == door)
+                {
+                    updatedList.Remove(door);
+                }
+            }
+            do
+            {
+                Console.WriteLine("Would you like to remove another? ( y / n )");                
+                string removeAnother = Console.ReadLine().ToLower();
+                switch (removeAnother)
+                {
+                    case "y":
+                        Console.WriteLine("Please enter the door you want to remove");
+                        string nextDoor = Console.ReadLine();                        
+                        foreach (string door in updatedList)
+                        {
+                            if (nextDoor == door)
+                            {
+                                updatedList.Remove(door);
+                            }
+                        }
+                        break;
+                    case "n":
+                        Console.WriteLine("The door has been removed");
+                        removing = false;
+                        PressAnyKey();
+                        break;
+                    default:
+                        SwitchDefault();
+                        break;
+                }
+            } while (removing);
+            return updatedList;
+        }
+        public void SwitchDefault()
+        {
+            Console.WriteLine("Invalid input");
             PressAnyKey();
         }
         public void SeedData()
@@ -113,15 +228,17 @@ namespace GoldBadgeChallenge_3_Company_Badges
             Console.ReadLine();
             Console.Clear();
         }
-        public void DisplayDoorAccess()
+        public void DisplayDoorAccess(int id)
         {
-
-            foreach (KeyValuePair<int, Badge> badgeAccess in _badgeRepo.ViewAllBadges())
-            {
-                Console.WriteLine($"");
-            }
+            Badge badgeList = _badgeRepo.FindBadgeByBadgeNumber(id);
+            List<string> doorAccess = badgeList.DoorAccess;
+                foreach (string door in doorAccess)
+                {
+                    Console.WriteLine($"{door}, ");
+                }
+            
         }
-       
+
 
         /*   The Program will allow a security staff member to do the following:
 create a new badge
