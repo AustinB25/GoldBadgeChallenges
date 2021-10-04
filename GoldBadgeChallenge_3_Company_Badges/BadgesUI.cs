@@ -81,6 +81,12 @@ namespace GoldBadgeChallenge_3_Company_Badges
             _badgeRepo.CreateANewBadge(newBadge);
         }
         //need help with displaying badge door access
+        /*#3 List all badges view
+        Badge #	Door Access
+        12345	A7
+        22345	A1, A4, B1, B2
+        32345	A4, A5
+        */
         public void ViewAllBadgesUI()
         {
             Console.Clear();
@@ -109,8 +115,8 @@ namespace GoldBadgeChallenge_3_Company_Badges
             Console.Clear();
             switch (doorUpdate)
             {
-                case 1:                    
-                    updateBadge.DoorAccess = AddDoors(updateBadge);                    
+                case 1:
+                    updateBadge.DoorAccess = AddDoors(updateBadge);
                     break;
                 case 2:
                     updateBadge.DoorAccess = RemoveDoor(updateBadge);
@@ -144,15 +150,16 @@ namespace GoldBadgeChallenge_3_Company_Badges
                         break;
                     case "n":
                         Console.WriteLine("The door has been added");
-                        adding = false;                        
+                        adding = false;
                         break;
                     default:
                         SwitchDefault();
                         break;
                 }
             } while (adding);
-            return newDoors;                        
+            return newDoors;
         }
+        //need help with remove logic
         public List<string> RemoveDoor(Badge badge)
         {
             bool removing = true;
@@ -169,13 +176,13 @@ namespace GoldBadgeChallenge_3_Company_Badges
             }
             do
             {
-                Console.WriteLine("Would you like to remove another? ( y / n )");                
+                Console.WriteLine("Would you like to remove another? ( y / n )");
                 string removeAnother = Console.ReadLine().ToLower();
                 switch (removeAnother)
                 {
                     case "y":
                         Console.WriteLine("Please enter the door you want to remove");
-                        string nextDoor = Console.ReadLine();                        
+                        string nextDoor = Console.ReadLine();
                         foreach (string door in updatedList)
                         {
                             if (nextDoor == door)
@@ -187,7 +194,6 @@ namespace GoldBadgeChallenge_3_Company_Badges
                     case "n":
                         Console.WriteLine("The door has been removed");
                         removing = false;
-                        PressAnyKey();
                         break;
                     default:
                         SwitchDefault();
@@ -232,51 +238,12 @@ namespace GoldBadgeChallenge_3_Company_Badges
         {
             Badge badgeList = _badgeRepo.FindBadgeByBadgeNumber(id);
             List<string> doorAccess = badgeList.DoorAccess;
-                foreach (string door in doorAccess)
-                {
-                    Console.WriteLine($"{door}, ");
-                }
-            
+            foreach (string door in doorAccess)
+            {
+                Console.WriteLine($"{door}, ");
+            }
         }
 
 
-        /*   The Program will allow a security staff member to do the following:
-create a new badge
-update doors on an existing badge.
-delete all doors from an existing badge.
-show a list with all badge numbers and door access
-Note: Make sure to keep the responsibilities of your UI, your repo, and your tests separate.
-Only your UI class should ever take input from the user.
-Here are some example views:
-Menu
-Hello Security Admin, What would you like to do?
-Add a badge
-Edit a badge.
-List all Badges
-#1 Add a badge
-What is the number on the badge: 12345
-List a door that it needs access to: A5
-Any other doors(y/n)? y
-List a door that it needs access to: A7
-Any other doors(y/n)? n
-(Return to main menu.)
-#2 Update a badge
-What is the badge number to update? 12345
-12345 has access to doors A5 & A7.
-What would you like to do?
-Remove a door
-Add a door
-> 1
-Which door would you like to remove? A5
-Door removed.
-12345 has access to door A7.
-#3 List all badges view
-Badge #	Door Access
-12345	A7
-22345	A1, A4, B1, B2
-32345	A4, A5
-Out of scope:
-You do not need to consider tying an individual badge to a particular user. Just the Badge # will do.
-Be sure to Unit Test your Repository methods.*/
     }
 }
