@@ -55,6 +55,7 @@
     <Compile Include="Challenge_7_Company_Barbeques_RepoTests.cs" />
     <Compile Include="Challenge_1_Cafe_RepoTests.cs" />
     <Compile Include="Challenge_3_Company_Badges_RepoTests.cs" />
+    <Compile Include="Challenge_6_Green_Plan_RepoTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -75,6 +76,10 @@
     <ProjectReference Include="..\GoldBadgeChallenge_4_Company_Outings\GoldBadgeChallenge_4_Company_Outings.csproj">
       <Project>{9C94A8A1-DC76-4387-803E-73CD4BE18BE4}</Project>
       <Name>GoldBadgeChallenge_4_Company_Outings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GoldBadgeChallenge_6_Green_Plan\GoldBadgeChallenge_6_Green_Plan.csproj">
+      <Project>{461A6286-DF30-4C0E-A40C-567C6C2965BA}</Project>
+      <Name>GoldBadgeChallenge_6_Green_Plan</Name>
     </ProjectReference>
     <ProjectReference Include="..\GoldBadgeChallenge_7_Barbeque\GoldBadgeChallenge_7_Barbeque.csproj">
       <Project>{1FE27DAB-C2FD-41F7-B924-5E077B61B96A}</Project>

@@ -27,3 +27,6 @@ C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\
 C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\GoldBadgeChallenge_3_Company_Badges.exe
 C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\GoldBadgeChallenge_3_Company_Badges.pdb
 C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\GoldBadgeChallenge_3_Company_Badges.exe.config
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\GoldBadgeChallenge_6_Green_Plan.exe
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\GoldBadgeChallenge_6_Green_Plan.pdb
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallengesRepositories\bin\Debug\GoldBadgeChallenge_6_Green_Plan.exe.config

@@ -1,0 +1,7 @@
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_6_Green_Plan\bin\Debug\GoldBadgeChallenge_6_Green_Plan.exe.config
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_6_Green_Plan\bin\Debug\GoldBadgeChallenge_6_Green_Plan.exe
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_6_Green_Plan\bin\Debug\GoldBadgeChallenge_6_Green_Plan.pdb
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_6_Green_Plan\obj\Debug\GoldBadgeChallenge_6_Green_Plan.csproj.AssemblyReference.cache
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_6_Green_Plan\obj\Debug\GoldBadgeChallenge_6_Green_Plan.csproj.CoreCompileInputs.cache
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_6_Green_Plan\obj\Debug\GoldBadgeChallenge_6_Green_Plan.exe
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_6_Green_Plan\obj\Debug\GoldBadgeChallenge_6_Green_Plan.pdb
