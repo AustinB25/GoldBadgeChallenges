@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GoldBadgeChallenge_6_Green_Plan.CarInterFaceAndClasses
+namespace GoldBadgeChallenge_6_Green_Plan
 {
-    class Electric
+    public class ICarRepository
     {
     }
 }
