@@ -94,11 +94,21 @@ namespace GoldBadgeChallenge_3_Company_Badges
             foreach (KeyValuePair<int, Badge> badge in _badgeRepo.ViewAllBadges())
             {
 
-                Console.WriteLine($"{badge.Key}"); DisplayDoorAccess(badge.Key);
+                Console.Write($"{badge.Key} "); DisplayDoorAccess(badge.Key);
 
             }
             Console.WriteLine("\n");
             PressAnyKey();
+        }
+        public void DisplayDoorAccess(int id)
+        {
+            Badge badgeList = _badgeRepo.FindBadgeByBadgeNumber(id);
+            List<string> doorAccess = badgeList.DoorAccess;
+            foreach (string door in doorAccess)
+            {
+                Console.Write($"{door}, ");
+            }
+            Console.WriteLine("\n");
         }
         public void UpdateABadge()
         {
@@ -163,17 +173,11 @@ namespace GoldBadgeChallenge_3_Company_Badges
         public List<string> RemoveDoor(Badge badge)
         {
             bool removing = true;
-            Badge removeDoorFrom = _badgeRepo.FindBadgeByBadgeNumber(badge.BadgeID);
-            List<string> updatedList = removeDoorFrom.DoorAccess;
+            Badge removeDoorFrom = _badgeRepo.FindBadgeByBadgeNumber(badge.BadgeID);            
             Console.WriteLine("Please enter the door you would like to remove:");
-            string removeDoor = Console.ReadLine();
-            foreach (string door in updatedList)
-            {
-                if (removeDoor == door)
-                {
-                    updatedList.Remove(door);
-                }
-            }
+            string removeDoor = Console.ReadLine();            
+            removeDoorFrom.DoorAccess.Remove(removeDoor);
+            
             do
             {
                 Console.WriteLine("Would you like to remove another? ( y / n )");
@@ -183,13 +187,7 @@ namespace GoldBadgeChallenge_3_Company_Badges
                     case "y":
                         Console.WriteLine("Please enter the door you want to remove");
                         string nextDoor = Console.ReadLine();
-                        foreach (string door in updatedList)
-                        {
-                            if (nextDoor == door)
-                            {
-                                updatedList.Remove(door);
-                            }
-                        }
+                        removeDoorFrom.DoorAccess.Remove(nextDoor);
                         break;
                     case "n":
                         Console.WriteLine("The door has been removed");
@@ -200,7 +198,7 @@ namespace GoldBadgeChallenge_3_Company_Badges
                         break;
                 }
             } while (removing);
-            return updatedList;
+            return removeDoorFrom.DoorAccess;
         }
         public void SwitchDefault()
         {
@@ -233,15 +231,6 @@ namespace GoldBadgeChallenge_3_Company_Badges
             Console.WriteLine("Press any key to continue...");
             Console.ReadLine();
             Console.Clear();
-        }
-        public void DisplayDoorAccess(int id)
-        {
-            Badge badgeList = _badgeRepo.FindBadgeByBadgeNumber(id);
-            List<string> doorAccess = badgeList.DoorAccess;
-            foreach (string door in doorAccess)
-            {
-                Console.WriteLine($"{door}, ");
-            }
         }
 
 

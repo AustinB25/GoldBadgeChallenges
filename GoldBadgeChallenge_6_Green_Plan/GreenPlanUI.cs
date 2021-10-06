@@ -197,7 +197,6 @@ namespace GoldBadgeChallenge_6_Green_Plan
                 Console.WriteLine("That car was not deleted.");
             }
         }
-
         private void SeedData()
         {
             Car seed1 = new Car(2021, "Dodge", "Charger", 552, FeulType.Gas);
