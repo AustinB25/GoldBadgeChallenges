@@ -1,0 +1,7 @@
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_5_Greetings\bin\Debug\GoldBadgeChallenge_5_Greetings.exe.config
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_5_Greetings\bin\Debug\GoldBadgeChallenge_5_Greetings.exe
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_5_Greetings\bin\Debug\GoldBadgeChallenge_5_Greetings.pdb
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_5_Greetings\obj\Debug\GoldBadgeChallenge_5_Greetings.csproj.AssemblyReference.cache
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_5_Greetings\obj\Debug\GoldBadgeChallenge_5_Greetings.csproj.CoreCompileInputs.cache
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_5_Greetings\obj\Debug\GoldBadgeChallenge_5_Greetings.exe
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenge_5_Greetings\obj\Debug\GoldBadgeChallenge_5_Greetings.pdb

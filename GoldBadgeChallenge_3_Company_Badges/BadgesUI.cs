@@ -80,13 +80,7 @@ namespace GoldBadgeChallenge_3_Company_Badges
             } while (addingDoors);
             _badgeRepo.CreateANewBadge(newBadge);
         }
-        //need help with displaying badge door access
-        /*#3 List all badges view
-        Badge #	Door Access
-        12345	A7
-        22345	A1, A4, B1, B2
-        32345	A4, A5
-        */
+        //need help with displaying badge door access      
         public void ViewAllBadgesUI()
         {
             Console.Clear();
