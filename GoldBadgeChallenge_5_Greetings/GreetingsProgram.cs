@@ -10,6 +10,8 @@ namespace GoldBadgeChallenge_5_Greetings
     {
         static void Main(string[] args)
         {
+            GreetingsUI program = new GreetingsUI();
+            program.Run();
         }
     }
 }

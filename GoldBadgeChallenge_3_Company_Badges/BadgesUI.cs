@@ -79,8 +79,7 @@ namespace GoldBadgeChallenge_3_Company_Badges
                 }
             } while (addingDoors);
             _badgeRepo.CreateANewBadge(newBadge);
-        }
-        //need help with displaying badge door access      
+        }        
         public void ViewAllBadgesUI()
         {
             Console.Clear();
@@ -113,7 +112,7 @@ namespace GoldBadgeChallenge_3_Company_Badges
             Console.WriteLine($"{updateBadge.BadgeID} has access to doors: ");
             DisplayDoorAccess(badgeID);
             Console.WriteLine("Would you like to:\n"
-                + "1. Add a door"
+                + "1. Add a door\n"
                 + "2. Remove a door");
             int doorUpdate = int.Parse(Console.ReadLine());
             Console.Clear();
@@ -162,16 +161,14 @@ namespace GoldBadgeChallenge_3_Company_Badges
                 }
             } while (adding);
             return newDoors;
-        }
-        //need help with remove logic
+        }        
         public List<string> RemoveDoor(Badge badge)
         {
             bool removing = true;
             Badge removeDoorFrom = _badgeRepo.FindBadgeByBadgeNumber(badge.BadgeID);            
             Console.WriteLine("Please enter the door you would like to remove:");
             string removeDoor = Console.ReadLine();            
-            removeDoorFrom.DoorAccess.Remove(removeDoor);
-            
+            removeDoorFrom.DoorAccess.Remove(removeDoor);            
             do
             {
                 Console.WriteLine("Would you like to remove another? ( y / n )");
