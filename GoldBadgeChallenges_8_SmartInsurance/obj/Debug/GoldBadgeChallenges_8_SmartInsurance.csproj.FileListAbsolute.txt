@@ -1,0 +1,7 @@
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenges_8_SmartInsurance\bin\Debug\GoldBadgeChallenges_8_SmartInsurance.exe.config
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenges_8_SmartInsurance\bin\Debug\GoldBadgeChallenges_8_SmartInsurance.exe
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenges_8_SmartInsurance\bin\Debug\GoldBadgeChallenges_8_SmartInsurance.pdb
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenges_8_SmartInsurance\obj\Debug\GoldBadgeChallenges_8_SmartInsurance.csproj.AssemblyReference.cache
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenges_8_SmartInsurance\obj\Debug\GoldBadgeChallenges_8_SmartInsurance.csproj.CoreCompileInputs.cache
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenges_8_SmartInsurance\obj\Debug\GoldBadgeChallenges_8_SmartInsurance.exe
+C:\Users\kpak2\source\repos\GoldBadgeChallenges\GoldBadgeChallenges_8_SmartInsurance\obj\Debug\GoldBadgeChallenges_8_SmartInsurance.pdb

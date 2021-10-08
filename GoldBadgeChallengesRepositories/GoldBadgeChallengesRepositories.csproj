@@ -57,11 +57,16 @@
     <Compile Include="Challenge_3_Company_Badges_RepoTests.cs" />
     <Compile Include="Challenge_6_Green_Plan_RepoTests.cs" />
     <Compile Include="Challenge_5_Geetings_UnitTests.cs" />
+    <Compile Include="Challenge_8_SmartInsurance_RepoTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GoldBadgeChallenges_8_SmartInsurance\GoldBadgeChallenges_8_SmartInsurance.csproj">
+      <Project>{96C6943B-10A0-454A-AF81-4E1004A48F9E}</Project>
+      <Name>GoldBadgeChallenges_8_SmartInsurance</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GoldBadgeChallenge_1_Cafe\GoldBadgeChallenge_1_Cafe.csproj">
       <Project>{FC9B5965-D0EE-4CFA-BA9A-EE58E4F11B61}</Project>
       <Name>GoldBadgeChallenge_1_Cafe</Name>

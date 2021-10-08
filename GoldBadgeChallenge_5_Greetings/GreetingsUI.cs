@@ -194,9 +194,9 @@ namespace GoldBadgeChallenge_5_Greetings
             Customer newCust1 = new Customer("Austin", "Bridgewater", CustomerType.Current, "ab@gmail.com");
             Customer newCust2 = new Customer("Katelyn", "Bridgewater", CustomerType.Past, "kb@gmail.com");
             Customer newCust3 = new Customer("Jeremy", "Aldridge", CustomerType.Potential, "ja@gmail.com");
-            _custRepo.CreateANewCustomer(newCust1);
             _custRepo.CreateANewCustomer(newCust2);
             _custRepo.CreateANewCustomer(newCust3);
+            _custRepo.CreateANewCustomer(newCust1);
         }
         public void PressAnyKey()
         {
