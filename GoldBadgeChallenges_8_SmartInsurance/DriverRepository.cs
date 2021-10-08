@@ -45,7 +45,7 @@ namespace GoldBadgeChallenges_8_SmartInsurance
             _drivers.Remove(removeD);
             return true;
         }
-        public bool UpdateADriver(int id)
+        public bool UpdateADriver(int id, Driver updateDriver)
         {
             Driver newD = new Driver();
             Driver updateD = FindASpecififcDriver(id);

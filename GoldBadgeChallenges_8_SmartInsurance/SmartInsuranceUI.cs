@@ -51,6 +51,8 @@ namespace GoldBadgeChallenges_8_SmartInsurance
                         PressAnyKey();
                         break;
                     case 4:
+                        DisplayDriverRates();
+                        PressAnyKey();
                         break;
                     case 5:
                         break;
@@ -125,11 +127,12 @@ namespace GoldBadgeChallenges_8_SmartInsurance
         }
         public void ViewAllDrivers()
         {
+            Console.Clear();
             var drivers = _driverRepo.SeeAllCoveredDrivers();
             Console.WriteLine("Driver Id        Name        Average Speed          Insurance premium");
             foreach (var d in drivers)
             {
-                Console.WriteLine($"{d.DriverID}        {d.FullName}        {d.AverageSpeed}            {d.InsuranceRate}");
+                Console.WriteLine($"{d.DriverID}        {d.FullName}        {d.AverageSpeed}            ${d.InsuranceRate}");
             }
         }
         public void ViewADriver()
@@ -148,9 +151,18 @@ namespace GoldBadgeChallenges_8_SmartInsurance
                 +$"Drivers trailed: {viewD.DriversTrailed}\n"
                 +$"Insurance premuim: ${viewD.InsuranceRate}");
         }
+        public void DisplayDriverRates()
+        {
+            Console.Clear();
+            Console.WriteLine("Driver name   Driver premium");
+            foreach (var d in _driverRepo.SeeAllCoveredDrivers())
+            {
+                Console.WriteLine($"{d.FullName}     {d.InsuranceRate}");
+            }
+        }
         private void SeedData()
         {
-            Driver seed1 = new Driver("Austin", "Bridgewater", new DateTime(1996, 8, 19), 42.6, 15, 42, 2, 8);
+            Driver seed1 = new Driver("Austin", "Bridgewater", new DateTime(1996, 8, 19), 35.0, 0, 0, 0, 0);
             Driver seed2 = new Driver("Katelyn", "Bridgewater", new DateTime(2016, 7, 20), 37.8, 21, 24, 4, 15);
             Driver seed3 = new Driver("Joey", "Kinney", new DateTime(2006, 6, 18), 59.6, 15, 20, 3, 48);
             Driver seed4 = new Driver("Garrett", "Sanders", new DateTime(1986, 5, 17), 26.9, 4, 10, 0, 3);
@@ -183,31 +195,31 @@ namespace GoldBadgeChallenges_8_SmartInsurance
             int totalRating = (speedRating + timesSpeedingRating + signsRanRating + crossedLineRating + trailingRating);
             if(totalRating >= 23)
             {
-                return Math.Round(insuranceRate * .755m, 2);
+                return Math.Round(insuranceRate * .1225m, 2);
             }
             else if(totalRating >= 20)
             {
-                return insuranceRate / 65.25m;
+                return Math.Round(insuranceRate * .2535m, 2);
             }
            else if(totalRating >= 17)
             {
-                return Math.Round(insuranceRate / .5365m);
+                return Math.Round(insuranceRate * .3250m, 2);
             }
             else if(totalRating >= 13)
             {
-                return insuranceRate / 46.85m;
+                return Math.Round(insuranceRate * .4825m, 2);
             }
             else if(totalRating >= 10)
             {
-                return insuranceRate / 32.50m;
+                return Math.Round(insuranceRate * .5685m, 2);
             }
             else if(totalRating >= 7)
             {
-                return insuranceRate / 25.35m;
+                return Math.Round(insuranceRate * .6825m, 2);
             }
             else if(totalRating >= 4)
             {
-                return insuranceRate / 10.5m;
+                return Math.Round(insuranceRate * .7550m, 2);
             }
             else
             {
@@ -363,7 +375,7 @@ namespace GoldBadgeChallenges_8_SmartInsurance
         }
         private void PressAnyKey()
         {
-            Console.WriteLine("Press any key to continue...");
+            Console.WriteLine("\nPress any key to continue...");
             Console.ReadKey();
             Console.Clear();
         }
