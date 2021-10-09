@@ -30,6 +30,7 @@ namespace GoldBadgeChallenges_8_SmartInsurance
         public int TimesCrossingLine { get; set; }
         public int StopSignsRan { get; set; }
         public int DriversTrailed { get; set; }
-        public decimal InsuranceRate { get; set; }
+        public decimal InsuranceRate { get; set; } 
+        public int DriverRating { get; set; }
     }    
 }

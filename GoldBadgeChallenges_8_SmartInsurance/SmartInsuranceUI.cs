@@ -22,10 +22,10 @@ namespace GoldBadgeChallenges_8_SmartInsurance
             {
                 Console.WriteLine("Welcome to the Komodo Insurance Premiums program!\n\n"
                     + "What would you like to do?\n"
-                    + "1. Create a new Driver                                5. Find the best drivers we cover\n"
-                    + "2. See all drivers                                    6. Update a driver\n"
-                    + "3. View a specific driver information and premium     7. Remove a driver\n"
-                    + "4. View all driver rates                              8. Exit the program\n");
+                    + "1. Create a new Driver                                5. Update a driver\n"
+                    + "2. See all drivers                                    6. Remove a driver\n"
+                    + "3. View a specific driver information and premium     7. See the five best drivers\n"
+                    + "4. View all driver rates                              8. Exit the program");
                 int mainInput = int.Parse(Console.ReadLine());
                 switch (mainInput)
                 {
@@ -55,19 +55,30 @@ namespace GoldBadgeChallenges_8_SmartInsurance
                         PressAnyKey();
                         break;
                     case 5:
+                        UpdateADriver();
+                        PressAnyKey();
                         break;
                     case 6:
+                        DeleteADriver();
+                        PressAnyKey();
                         break;
                     case 7:
+                        DisplayTheBestDrivers();
+                        PressAnyKey();
                         break;
                     case 8:
+                        Console.WriteLine("Goodbye!");
+                        System.Threading.Thread.Sleep(1500);
+                        isRunning = false;
                         break;
                     default:
+                        Console.WriteLine("Please enter a valid option.");
+                        PressAnyKey();
                         break;
                 }
             }
         }
-        public Driver CollectDriverInfo()
+        private Driver CollectDriverInfo()
         {
             Driver newD = new Driver();
             Console.WriteLine("What is the driver's first name?");
@@ -123,9 +134,10 @@ namespace GoldBadgeChallenges_8_SmartInsurance
             newD.DriversTrailed = int.Parse(Console.ReadLine());
             PressAnyKey();
             newD.InsuranceRate = GetDriverPremium(newD);
+            newD.DriverRating = GetDriverRating(newD);
             return newD;
         }
-        public void ViewAllDrivers()
+        private void ViewAllDrivers()
         {
             Console.Clear();
             var drivers = _driverRepo.SeeAllCoveredDrivers();
@@ -135,7 +147,7 @@ namespace GoldBadgeChallenges_8_SmartInsurance
                 Console.WriteLine($"{d.DriverID}        {d.FullName}        {d.AverageSpeed}            ${d.InsuranceRate}");
             }
         }
-        public void ViewADriver()
+        private void ViewADriver()
         {
             ViewAllDrivers();
             Console.WriteLine("\nPlease enter the driver id of the driver you want to view.");
@@ -143,15 +155,46 @@ namespace GoldBadgeChallenges_8_SmartInsurance
             Driver viewD = _driverRepo.FindASpecififcDriver(dID);
             Console.Clear();
             Console.WriteLine($"Driver name: {viewD.FullName}\n"
-                +$"Driver birthday: {viewD.BirthDate}\n"
-                +$"Average speed: {viewD.AverageSpeed}\n"
-                +$"Times Speeding: {viewD.TimesOverSpeedLimit}\n"
-                +$"Times crossing line: {viewD.TimesCrossingLine}\n"
-                +$"Stop signs ran: {viewD.StopSignsRan}\n"
-                +$"Drivers trailed: {viewD.DriversTrailed}\n"
-                +$"Insurance premuim: ${viewD.InsuranceRate}");
+                + $"Driver birthday: {viewD.BirthDate}\n"
+                + $"Average speed: {viewD.AverageSpeed}\n"
+                + $"Times Speeding: {viewD.TimesOverSpeedLimit}\n"
+                + $"Times crossing line: {viewD.TimesCrossingLine}\n"
+                + $"Stop signs ran: {viewD.StopSignsRan}\n"
+                + $"Drivers trailed: {viewD.DriversTrailed}\n"
+                + $"Insurance premuim: ${viewD.InsuranceRate}");
         }
-        public void DisplayDriverRates()
+        private void UpdateADriver()
+        {
+            Console.Clear();
+            ViewAllDrivers();
+            Console.WriteLine("\nPlease enter the driver id of the diver you want to update.");
+            int updateMe = int.Parse(Console.ReadLine());
+            Driver updateDriver = CollectDriverInfo();
+            bool wasUpdated = _driverRepo.UpdateADriver(updateMe, updateDriver);
+            if (wasUpdated == true)
+            {
+                Console.WriteLine("The drivers infomation was updated.");
+            }
+            else
+            {
+                Console.WriteLine("The driver was not updated.");
+            }
+        }
+        private void DeleteADriver()
+        {
+            Console.WriteLine("Please enter the driver id of the driver you want to delete.");
+            int deleteMe = int.Parse(Console.ReadLine());
+            bool wasDeleted = _driverRepo.RemoveADriver(deleteMe);
+            if (wasDeleted == true)
+            {
+                Console.WriteLine("The driver was deleted");
+            }
+            else
+            {
+                Console.WriteLine("The driver was not deleted");
+            }
+        }
+        private void DisplayDriverRates()
         {
             Console.Clear();
             Console.WriteLine("Driver name   Driver premium");
@@ -175,7 +218,14 @@ namespace GoldBadgeChallenges_8_SmartInsurance
             seed4.InsuranceRate = GetDriverPremium(seed4);
             seed5.InsuranceRate = GetDriverPremium(seed5);
             seed6.InsuranceRate = GetDriverPremium(seed6);
-            seed7.InsuranceRate = GetDriverPremium(seed7);            
+            seed7.InsuranceRate = GetDriverPremium(seed7);
+            seed1.DriverRating = GetDriverRating(seed1);
+            seed2.DriverRating = GetDriverRating(seed2);
+            seed3.DriverRating = GetDriverRating(seed3);
+            seed4.DriverRating = GetDriverRating(seed4);
+            seed5.DriverRating = GetDriverRating(seed5);
+            seed6.DriverRating = GetDriverRating(seed6);
+            seed7.DriverRating = GetDriverRating(seed7);
             _driverRepo.CreateANewDriver(seed1);
             _driverRepo.CreateANewDriver(seed2);
             _driverRepo.CreateANewDriver(seed3);
@@ -184,6 +234,49 @@ namespace GoldBadgeChallenges_8_SmartInsurance
             _driverRepo.CreateANewDriver(seed6);
             _driverRepo.CreateANewDriver(seed7);
         }
+        private List<Driver> FindTheFiveBestDrivers()
+        {            
+            var allDrivers = _driverRepo.SeeAllCoveredDrivers();
+            var bestDrivers = new Driver[5];
+            //loop 5 times to find 5 drivers
+            for (int i = 0; i < 5; i++)
+            {
+                var currentBestDriver = allDrivers[0];
+                bestDrivers[i] = allDrivers[0];
+                for(int j =1; j < allDrivers.Count; j++)
+                {
+                    if(bestDrivers[i].DriverRating < allDrivers[j].DriverRating)
+                    {
+                        bestDrivers[i] = allDrivers[j];
+                        currentBestDriver = bestDrivers[i];
+                    }
+                }
+                    allDrivers.Remove(currentBestDriver);
+            }    
+
+            return bestDrivers.ToList();
+        }
+        private void DisplayTheBestDrivers()
+        {
+            Console.Clear();
+            var bestDriverList = FindTheFiveBestDrivers();
+            foreach (var driver in bestDriverList)
+            {
+                Console.WriteLine($"Driver Rating: {driver.DriverRating}\n"
+                    + $" Driver Name: {driver.FullName}\n"
+                    + $"Average Speed: {driver.AverageSpeed}\n");
+            }
+        }
+        private int GetDriverRating(Driver d)
+        {
+            int speedRating = GetSpeedRating(d.AverageSpeed);
+            int timesSpeedingRating = GetTimeSpeedingRating(d.TimesOverSpeedLimit);
+            int crossedLineRating = LineCrossedRating(d.TimesCrossingLine);
+            int signsRanRating = GetSignsRanRating(d.StopSignsRan);
+            int trailingRating = GetDriversTrailedRating(d.DriversTrailed);
+            int totalRating = (speedRating + timesSpeedingRating + signsRanRating + crossedLineRating + trailingRating);
+            return totalRating;
+        }
         private decimal GetDriverPremium(Driver d)
         {
             decimal insuranceRate = 200.00m;
@@ -191,33 +284,33 @@ namespace GoldBadgeChallenges_8_SmartInsurance
             int timesSpeedingRating = GetTimeSpeedingRating(d.TimesOverSpeedLimit);
             int crossedLineRating = LineCrossedRating(d.TimesCrossingLine);
             int signsRanRating = GetSignsRanRating(d.StopSignsRan);
-            int trailingRating = GetDriversTrailedRating(d.DriversTrailed);  
+            int trailingRating = GetDriversTrailedRating(d.DriversTrailed);
             int totalRating = (speedRating + timesSpeedingRating + signsRanRating + crossedLineRating + trailingRating);
-            if(totalRating >= 23)
+            if (totalRating >= 23)
             {
                 return Math.Round(insuranceRate * .1225m, 2);
             }
-            else if(totalRating >= 20)
+            else if (totalRating >= 20)
             {
                 return Math.Round(insuranceRate * .2535m, 2);
             }
-           else if(totalRating >= 17)
+            else if (totalRating >= 17)
             {
                 return Math.Round(insuranceRate * .3250m, 2);
             }
-            else if(totalRating >= 13)
+            else if (totalRating >= 13)
             {
                 return Math.Round(insuranceRate * .4825m, 2);
             }
-            else if(totalRating >= 10)
+            else if (totalRating >= 10)
             {
                 return Math.Round(insuranceRate * .5685m, 2);
             }
-            else if(totalRating >= 7)
+            else if (totalRating >= 7)
             {
                 return Math.Round(insuranceRate * .6825m, 2);
             }
-            else if(totalRating >= 4)
+            else if (totalRating >= 4)
             {
                 return Math.Round(insuranceRate * .7550m, 2);
             }
@@ -229,7 +322,7 @@ namespace GoldBadgeChallenges_8_SmartInsurance
         private int LineCrossedRating(int linesCrossed)
         {
             int linesCrossedRating;
-            if(linesCrossed >= 80)
+            if (linesCrossed >= 80)
             {
                 linesCrossedRating = 0;
                 return linesCrossedRating;
@@ -278,8 +371,8 @@ namespace GoldBadgeChallenges_8_SmartInsurance
                 speedRating = 5;
                 return speedRating;
             }
-            else 
-            { 
+            else
+            {
                 speedRating = 0;
                 return speedRating;
             }
@@ -287,12 +380,12 @@ namespace GoldBadgeChallenges_8_SmartInsurance
         private int GetTimeSpeedingRating(int timesSpeeding)
         {
             int timeSpeedingRating;
-            if(timesSpeeding >= 10)
+            if (timesSpeeding >= 10)
             {
                 timeSpeedingRating = 0;
                 return timeSpeedingRating;
             }
-            else if(timesSpeeding >= 8)
+            else if (timesSpeeding >= 8)
             {
                 timeSpeedingRating = 1;
                 return timeSpeedingRating;
@@ -302,7 +395,7 @@ namespace GoldBadgeChallenges_8_SmartInsurance
                 timeSpeedingRating = 2;
                 return timeSpeedingRating;
             }
-            else if(timesSpeeding >= 3)
+            else if (timesSpeeding >= 3)
             {
                 timeSpeedingRating = 4;
                 return timeSpeedingRating;
@@ -333,7 +426,7 @@ namespace GoldBadgeChallenges_8_SmartInsurance
                 signsRanRating = 2;
                 return signsRanRating;
             }
-           else  if (signsRan >= 4)
+            else if (signsRan >= 4)
             {
                 signsRanRating = 4;
                 return signsRanRating;
@@ -361,12 +454,12 @@ namespace GoldBadgeChallenges_8_SmartInsurance
             {
                 trailedRating = 2;
                 return trailedRating;
-            } 
+            }
             else if (driversTrailed >= 20)
             {
                 trailedRating = 4;
                 return trailedRating;
-            } 
+            }
             else
             {
                 trailedRating = 5;
@@ -379,18 +472,5 @@ namespace GoldBadgeChallenges_8_SmartInsurance
             Console.ReadKey();
             Console.Clear();
         }
-        /*       Smart Insurance
-       Komodo wants to work with smart cars that collect driver data to calculate the costs of car insurance.
-
-       The car tracks all the data for a driver:
-       how often they speed or follow the speed limit, how often they swerve outside of their lane, how often they roll through a stop sign, and how often they follow too closely.
-
-       Your Goal:
-       Write a program that shows premium costs based on a driver's driving habits. 
-        Obviously, if a driver has poor driving skills, their premium will be higher.
-
-       Note:
-       This is very open ended and allows you to be creative.
-        A base premium cost can be an estimated number and a premium is the monthly amount that a driver would pay.*/
     }
 }

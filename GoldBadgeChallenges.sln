@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldBadgeChallengesReposito
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "READ.ME", "READ.ME", "{C7321C80-3E42-4665-963F-9C2788BAD6C5}"
 	ProjectSection(SolutionItems) = preProject
-		READ_ME.txt = READ_ME.txt
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldBadgeChallenge_1_Cafe", "GoldBadgeChallenge_1_Cafe\GoldBadgeChallenge_1_Cafe.csproj", "{FC9B5965-D0EE-4CFA-BA9A-EE58E4F11B61}"
